@@ -1,0 +1,110 @@
+
+use_bpm 70
+#t Sleep = 2
+live_loop :lead_melody do
+  use_synth :prophet
+  play :e5, release: 0.3
+  sleep 0.5
+  play :g5, release: 0.3
+  sleep 0.5
+  play :b5, release: 0.3
+  sleep 0.5
+  play :c6, release: 0.3
+  sleep 0.5
+  play :b5, release: 0.3
+  sleep 0.5
+  play :g5, release: 0.3
+  sleep 0.5
+  play :e5, release: 0.3
+  sleep 0.5
+  play :c6, release: 0.3
+  sleep 0.5
+end
+#t Sleep = 20
+# Atmospheric Pad (Ancient Tomb Ambience)
+live_loop :ambient_pad do
+  use_synth :dark_ambience
+  play :d3, release: 5, sustain: 10
+  sleep 10
+  play :a3, release: 5, sustain: 10
+  sleep 10
+end
+sleep 4
+
+live_loop :bnoise do
+  use_synth :sine
+  play :e5, release: 0.3
+  sleep 0.5
+  play :g5, release: 0.3
+  sleep 0.5
+  play :b5, release: 0.3
+  sleep 0.5
+  play :c6, release: 0.3
+  sleep 0.5
+end
+
+# Mysterious Melody (Lead)
+#t Sleep = 8
+live_loop :melody do
+  use_synth :hollow
+  play :d4, release: 1.5, cutoff: 70
+  sleep 2
+  play :f4, release: 1.5, cutoff: 70
+  sleep 2
+  play :a4, release: 1.5, cutoff: 70
+  sleep 2
+  play :g4, release: 1.5, cutoff: 70
+  sleep 2
+end
+sleep 6
+# Deep Bassline (Tension Building)
+#t Sleep = 4
+live_loop :bassline do
+  use_synth :prophet
+  play :d2, release: 0.8, cutoff: 40
+  sleep 1
+  play :a2, release: 0.8, cutoff: 40
+  sleep 1
+  play :f2, release: 0.8, cutoff: 40
+  sleep 1
+  play :g2, release: 0.8, cutoff: 40
+  sleep 1
+end
+# Haunting Melody (Lead)
+#t Sleep = 8
+live_loop :melody do
+  use_synth :prophet
+  play :e4, release: 1, cutoff: 70
+  sleep 2
+  play :g4, release: 1, cutoff: 70
+  sleep 2
+  play :b4, release: 1, cutoff: 70
+  sleep 2
+  play :a4, release: 1, cutoff: 70
+  sleep 2
+end
+sleep 8
+# Percussion with Echo (For Tomb-like Ambience)
+#t Sleep = 3
+live_loop :percussion do
+  sample :loop_amen, rate: 0.5, sustain: 0.2
+  sleep 1.5
+  sample :loop_amen, rate: 1, sustain: 0.2
+  sleep 1.5
+end
+
+# Adding a bit of reverb to make it more atmospheric
+#t Sleep = 12
+with_fx :reverb, room: 0.8 do
+  live_loop :reverb_pad do
+    use_synth :dark_ambience
+    play :a2, release: 3, sustain: 6
+    sleep 6
+    play :f2, release: 3, sustain: 6
+    sleep 6
+  end
+end
+
+
+
+
